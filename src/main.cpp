@@ -7,6 +7,10 @@ Tu vas avoir besoin de super Glue, les plot sont à placer comme je te les ai la
 sur chaque plaque blanche, avec les prise vers l'interieur. Fait gaf au aiment ils sont violant
 */
 
+//Chef c'est toi qui a tout fait 
+
+
+
 // put function declarations here:
 float DistanceDroite(void);
 int64_t DistanceGauche(void);
@@ -23,11 +27,12 @@ int apwm = 14;
 
 int encda = 19;
 int encdb = 17;
-int encga = 33;
-int encgb = 25;
+
+int encga = 26;
+int encgb = 27;
 int mode = 13;
 
-int freq = 5000;
+int freq = 25000;
 int pwmchannelb = 0;
 int pwmchannela = 1;
 int resolution = 8;
@@ -65,9 +70,8 @@ void setup() {
   digitalWrite(ain,0);
   ledcWrite(pwmchannela,0);
   ledcWrite(pwmchannelb,0);
-    EncoderDroit.setCount(0);
+  EncoderDroit.setCount(0);
   EncoderGauche.setCount(0);
-
 }
 
 void loop() {
@@ -75,11 +79,9 @@ void loop() {
 
 
 
- encoderMesureD = DistanceDroite();           //C'est surement la ou dans la fontion Distance droite qu'il y a un problème mais je vois pas lequel.
-
-
  //Serial.println(encoderMesureD);
- Serial.println(encoderMesureG);
+ Serial.printf("G : %d, D : %d \n", EncoderGauche.getCount(), EncoderDroit.getCount());
+
  delay(100);
 
 }
