@@ -39,7 +39,8 @@ class robot{
     public : 
     robot(Moteur& moteurDroit, Moteur& moteurGauche);//on met un & pour faire référence à des objets déjà existants
     void forward(int dutyCycle, int ticks);
-
+    void backward(int dutyCycle, int ticks);
+    
     private : 
     /*
     déclatation de membres de la classe robot à partir d'une réference de la classe Moteur

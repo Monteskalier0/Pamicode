@@ -85,3 +85,21 @@ void robot::forward(int dutyCycle, int ticks)
     m_moteurDroit.stop();
     m_moteurGauche.stop();
 }
+
+void robot::backward(int dutyCycle, int ticks)
+{
+    m_moteurDroit.clearCount();
+    m_moteurGauche.clearCount();
+    
+    while((m_moteurDroit.getCount()>= -ticks) && (m_moteurGauche.getCount() >= -ticks))
+    {
+    m_moteurDroit.rawBackward(dutyCycle);
+    m_moteurGauche.rawBackward(dutyCycle);
+
+    Serial.printf("codeur Gauche : %d, codeur Droit %d\n", m_moteurGauche.getCount(),m_moteurDroit.getCount());
+
+}
+
+    m_moteurDroit.stop();
+    m_moteurGauche.stop();
+}

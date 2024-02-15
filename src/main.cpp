@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <math.h>
 #include <Moteur.h>
+//All declaration shall be made in camelCase
 
 Moteur moteurDroit(20000,//frequence
                    0,//channel de la PWM
@@ -39,5 +40,7 @@ void loop()
   // Serial.printf("Valeur codeur Gauche %d  Valeur Codeur Droit %d\n", valG, valD);
 
   pami.forward(250, 10000);
+  delay(2000);
+  pami.backward(250, 10000);
   delay(2000);
 }
