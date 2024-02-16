@@ -57,12 +57,16 @@ void Moteur::rawBackward(int dutyCycle)
     ledcWrite(m_channelPwm, dutyCycle);
 }
 
-
 void Moteur::stop(void)
 {
     ledcWrite(m_channelPwm, 0);
     Serial.printf("moteur arrêté\n");
 }   
+
+float Moteur::distance(void)//distance parcourue = distance par tick*nombre de ticks
+{
+    return getCount()*m_distanceParTick;
+}
 
 robot::robot(Moteur& moteurDroit, Moteur& moteurGauche):m_moteurDroit(moteurDroit), m_moteurGauche(moteurGauche)
 {
@@ -103,3 +107,4 @@ void robot::backward(int dutyCycle, int ticks)
     m_moteurDroit.stop();
     m_moteurGauche.stop();
 }
+

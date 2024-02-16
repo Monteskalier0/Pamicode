@@ -1,6 +1,8 @@
 #include <Arduino.h>
 #include <math.h>
+#include "Encodeur.h"
 #include <Moteur.h>
+
 //All declaration shall be made in camelCase
 
 Moteur moteurDroit(20000,//frequence
@@ -22,9 +24,11 @@ Moteur moteurGauche(20000,//frequence
                     33,//encodeur pin A 
                     25//encodeur pin B
                     );
-
+                    
 robot pami(moteurDroit, moteurGauche);
 
+Encoder encodeurDroit(17, 19);
+Encoder encodeurGauche(33, 25);
 int valD, valG;
 
 
@@ -35,12 +39,7 @@ void setup()
 
 void loop()
 {
-  // valD = encodeurDroit.getCount();
-  // valG = encodeurGauche.getCount();
-  // Serial.printf("Valeur codeur Gauche %d  Valeur Codeur Droit %d\n", valG, valD);
-
-  pami.forward(250, 10000);
-  delay(2000);
-  pami.backward(250, 10000);
-  delay(2000);
+  valD = encodeurDroit.getCount();
+  valG = encodeurGauche.getCount();
+   Serial.printf("Valeur codeur Gauche %d  Valeur Codeur Droit %d\n", valG, valD);
 }
