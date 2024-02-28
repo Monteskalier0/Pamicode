@@ -2,13 +2,9 @@
 #include <ESP32Encoder.h>
 
 
-/*Slt Joshua avant de commencer à regarder mon programme aurait tu la gentillesse d'assembler les encodeur.
-Tu vas avoir besoin de super Glue, les plot sont à placer comme je te les ai laisser. Ensuite il faut visser les 2 encodeur coter exterieur
-sur chaque plaque blanche, avec les prise vers l'interieur. Fait gaf au aiment ils sont violant
-*/
 
-//Chef c'est toi qui a tout fait 
 
+//Chef c'est toi qui a tout fait
 
 
 // put function declarations here:
