@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <ESP32Encoder.h>
+#include <moteur.h>
 
 
 /*Slt Joshua avant de commencer à regarder mon programme aurait tu la gentillesse d'assembler les encodeur.
@@ -15,22 +16,15 @@ int64_t DistanceGauche(void);
 char G = 'G';
 char D = 'D';
 
-int bin = 27;
-int bpwm = 26;
 
-int ain = 12;
-int apwm = 14; 
 
 int encda = 19;
 int encdb = 17;
 int encga = 33;
 int encgb = 25;
-int mode = 13;
+//
 
-int freq = 5000;
-int pwmchannelb = 0;
-int pwmchannela = 1;
-int resolution = 8;
+
 
 float encoderMesureD = 0;
 float encoderMesureG = 0;
@@ -48,13 +42,11 @@ void setup() {
   Serial.begin(115200);
  
 
-  pinMode(mode,OUTPUT);
-   Serial.print("on \n");
-  digitalWrite(mode,HIGH);
+
 
   EncoderDroit.attachHalfQuad(encda, encdb);
   EncoderGauche.attachHalfQuad(encga, encgb);
-
+/*
   pinMode(bin,OUTPUT);
   pinMode(ain,OUTPUT);
   ledcSetup(pwmchannelb,freq,resolution);
@@ -62,27 +54,27 @@ void setup() {
   ledcAttachPin(apwm,pwmchannelb);
   ledcAttachPin(bpwm,pwmchannela);
   digitalWrite(bin,0);
-  digitalWrite(ain,0);
-  ledcWrite(pwmchannela,200);
-  ledcWrite(pwmchannelb,200);
-    EncoderDroit.setCount(0);
+  digitalWrite(ain,0);*/
+
+  moteur_init();
+
+  EncoderDroit.setCount(0);
   EncoderGauche.setCount(0);
 
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  ledcWrite(pwmchannela,200);
-  ledcWrite(pwmchannelb,200);
+writePWMD(100);
+writePWMG(100);
 
+ //encoderMesureD = DistanceDroite();           //C'est surement la ou dans la fontion Distance droite qu'il y a un problème mais je vois pas lequel.
+ //encoderMesureG = DistanceGauche(); 
 
- encoderMesureD = DistanceDroite();           //C'est surement la ou dans la fontion Distance droite qu'il y a un problème mais je vois pas lequel.
- encoderMesureG = DistanceGauche(); 
-
- Serial.println(encoderMesureD);
- Serial.println(encoderMesureG);
+ //Serial.println(encoderMesureD);
+ //Serial.println(encoderMesureG);
  
- delay(100);
+ //delay(100);
 
 }
 
@@ -93,3 +85,4 @@ return(EncoderDroit.getCount());
 int64_t DistanceGauche(void){
 return(EncoderGauche.getCount());
 }
+
