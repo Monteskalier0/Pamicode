@@ -3,11 +3,6 @@
 #include <moteur.h>
 
 
-/*Slt Joshua avant de commencer à regarder mon programme aurait tu la gentillesse d'assembler les encodeur.
-Tu vas avoir besoin de super Glue, les plot sont à placer comme je te les ai laisser. Ensuite il faut visser les 2 encodeur coter exterieur
-sur chaque plaque blanche, avec les prise vers l'interieur. Fait gaf au aiment ils sont violant
-*/
-
 // put function declarations here:
 float DistanceDroite(void);
 int64_t DistanceGauche(void);
@@ -46,18 +41,10 @@ void setup() {
 
   EncoderDroit.attachHalfQuad(encda, encdb);
   EncoderGauche.attachHalfQuad(encga, encgb);
-/*
-  pinMode(bin,OUTPUT);
-  pinMode(ain,OUTPUT);
-  ledcSetup(pwmchannelb,freq,resolution);
-  ledcSetup(pwmchannela,freq,resolution);
-  ledcAttachPin(apwm,pwmchannelb);
-  ledcAttachPin(bpwm,pwmchannela);
-  digitalWrite(bin,0);
-  digitalWrite(ain,0);*/
+
 
   moteur_init();
-
+  
   EncoderDroit.setCount(0);
   EncoderGauche.setCount(0);
 
