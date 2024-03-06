@@ -68,11 +68,11 @@ void loop() {
 writePWMD(100);
 writePWMG(100);
 
- //encoderMesureD = DistanceDroite();           //C'est surement la ou dans la fontion Distance droite qu'il y a un problème mais je vois pas lequel.
- //encoderMesureG = DistanceGauche(); 
+ encoderMesureD = DistanceDroite();           //C'est surement la ou dans la fontion Distance droite qu'il y a un problème mais je vois pas lequel.
+ encoderMesureG = DistanceGauche(); 
 
- //Serial.println(encoderMesureD);
- //Serial.println(encoderMesureG);
+ Serial.println(encoderMesureD);
+ Serial.println(encoderMesureG);
  
  //delay(100);
 
