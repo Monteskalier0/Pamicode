@@ -4,6 +4,7 @@
 #include <Moteur.h>
 
 //All declaration shall be made in camelCase
+int test = 0;
 
 Moteur moteurDroit(20000,//frequence
                    0,//channel de la PWM
