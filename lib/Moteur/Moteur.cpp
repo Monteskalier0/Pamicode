@@ -3,7 +3,8 @@
 
 Moteur::Moteur(uint32_t frequence, uint8_t channelPwm, int pinPwm, uint8_t resolution, int pinRotation, int mode, int pinEncoderA, int pinEncoderB)
     : Encoder(pinEncoderA,pinEncoderB)
-{
+{ 
+    int doubletest = 0;
     // Affection des paramètres aux variables membres, pour les rendre accessibles dans toute la classe
     m_frequence = frequence;
     m_channelPwm = channelPwm;
