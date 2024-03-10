@@ -1,4 +1,4 @@
-#include "MOTEUR.h"
+#include "Moteur.h"
 #include <Arduino.h>
 
 Moteur::Moteur(uint32_t frequence, uint8_t channelPwm, int pinPwm, uint8_t resolution, int pinRotation, int mode, int pinEncoderA, int pinEncoderB)

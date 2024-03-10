@@ -1,7 +1,7 @@
 #ifndef _MOTEUR_H
 #define _MOTEUR_H
 #include <Arduino.h>
-#include "ENCODEUR.h"
+#include "Encodeur.h"
 #include <math.h>
 
 #define BACKWARD 0x1
