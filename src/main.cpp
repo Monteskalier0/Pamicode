@@ -2,11 +2,10 @@
 #include <math.h>
 #include "Encodeur.h"
 #include <Moteur.h>
-#include "SRF02.h"
 
-Moteur moteurDroit(20000, // frequence
+Moteur moteurGauche(20000, // frequence
                    0,     // channel de la PWM
-                   14,    // pin de la PWM
+                   4,    // pin de la PWM
                    8,     // resolution
                    12,    // pin de rotation
                    13,    // mode
@@ -14,7 +13,7 @@ Moteur moteurDroit(20000, // frequence
                    19     // encodeur pin B
 );
 
-Moteur moteurGauche(20000, // frequence
+Moteur moteurDroit(20000, // frequence
                     1,     // channel de la PWM
                     26,    // pin de la PWM
                     8,     // resolution
@@ -26,21 +25,30 @@ Moteur moteurGauche(20000, // frequence
 
 robot pami(moteurDroit, moteurGauche);
 
-Encoder encodeurDroit(17, 19);
-Encoder encodeurGauche(33, 25);
 int valD, valG;
 
 void setup()
 {
+
   Serial.begin(115200);
-  sensorBegin();
+
 }
 
 void loop()
 {
 
-  valD = encodeurDroit.getCount();
-  valG = encodeurGauche.getCount();
-  Serial.printf("Valeur codeur Gauche %d  Valeur Codeur Droit %d\n", valG, valD);
-
+// pami.forward(150,50);
+// delay(1000);
+pami.turn(200, 250);
+// delay(1000);
+// pami.forward(150,50);
+// delay(1000);
+// pami.turn(90, 150);
+// delay(1000);
+// pami.forward(150,50);
+// delay(1000);
+// pami.turn(90, 150);
+// delay(1000);
+// pami.forward(150,50);
+delay(5000);
 }
